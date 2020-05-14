@@ -9,7 +9,7 @@ import secret_variables
 def lambda_handler(event, context):
     dataFrame   = GoogleNewsHeadlines().pandas_dataframe()
     engine = create_engine(
-        secret_variables.url, 
+        secret_variables.aws_url, 
         pool_recycle=3600)
     con = engine.connect()
 
