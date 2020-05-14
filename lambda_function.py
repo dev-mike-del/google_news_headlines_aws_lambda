@@ -6,8 +6,7 @@ from google_news_headlines import GoogleNewsHeadlines
 import secret_variables
 
 
-# def lambda_handler(event, context):
-def lambda_handler():
+def lambda_handler(event, context):
     dataFrame   = GoogleNewsHeadlines().pandas_dataframe()
     engine = create_engine(
         secret_variables.url, 
