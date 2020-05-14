@@ -1,0 +1,5 @@
+env/
+__pycache__/
+*.ipynb
+notes.txt
+secret_variables.py
