@@ -7,12 +7,11 @@ import secret_variables
 
 
 def lambda_handler():
-    dataFrame   = GoogleNewsHeadlines().pandas_dataframe()
+    dataFrame = GoogleNewsHeadlines().pandas_dataframe()
     engine = create_engine(
-        secret_variables.url, 
+        secret_variables.local_url, 
         pool_recycle=3600)
     con = engine.connect()
-
     try:
         dataFrame.to_sql(name='headlines',con=con,if_exists='append', index=False)
     except ValueError as vx:
