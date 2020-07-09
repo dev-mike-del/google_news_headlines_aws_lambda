@@ -77,19 +77,25 @@ class GoogleNewsHeadlines(object):
         iter_source =  iter(self.source)
         num_of_headlines = len(self.source) / 2
         for headline in iter_source:
+            href = headline.__getitem__('href')
+            url = 'https://news.google.com' + href
             org = next(iter_source)
-            results.append([headline.text, 
-                            org.text, 
-                            num_of_headlines,
-                            self.timestamp,])
+            results.append(
+                [headline.text,
+                url,
+                org.text, 
+                num_of_headlines,
+                self.timestamp,]
+                )
         pd.set_option('display.max_rows', None)
         pd.set_option('display.max_columns', None)
         pd.set_option('display.width', None)
         pd.set_option('display.max_colwidth', None)
-        colNames = ['title',
+        colNames = ['headline',
+                    'url',
                     'organization',
                     'count',
-                    'ts',
+                    'timestamp',
                     ]
         df = pd.DataFrame(data = results, columns = colNames)
         return df
@@ -167,6 +173,7 @@ class GoogleNewsHeadlines(object):
 
 
 def main():
+    pass
     data = GoogleNewsHeadlines()
     response = 0
     print('''
