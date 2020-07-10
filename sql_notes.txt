@@ -1,7 +1,7 @@
 CREATE TABLE `headlines` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `time_stamp` timestamp NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `headline` varchar(255) NOT NULL,
   `url` text NOT NULL,
   `organization` varchar(255) NOT NULL,
   `count` float(10,2) NOT NULL,
